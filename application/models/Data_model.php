@@ -3,10 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Data_model extends CI_Model {
 
-
-
 public function getUserData($login,$pass){
       $data= $this->db->where('email',$login)->where('password',$pass)->get('user');
+       return $data;
+   }
+   public function getPorterData($login,$pass){
+      $data= $this->db->where('porterid',$login)->where('porterid',$pass)->get('porter');
        return $data;
    }
 public function generateRandomString($n) {

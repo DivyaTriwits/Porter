@@ -1,5 +1,3 @@
-
-
 			<!-- Main Content-->
 			<div class="main-content pt-0">
 				<div class="container">
@@ -16,12 +14,7 @@
 								<button  data-target="#modaldemo3" data-toggle="modal" style="background-color:#73D3DD;color: #ffff;" class="btn btn-sm ripple ">Add Porter</button>
 							</div>
 						</div>
-						<!-- End Page Header -->
-
-						
-
-						
-
+						<!-- End Page Header -->	
 						<!-- Row -->
 						<div class="row">
 							<div class="col-lg-12">
@@ -92,49 +85,54 @@
 						<div class="modal-header">
 							<h6 class="modal-title">Add Porter</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
 						</div>
-						<form class="" action="<?php echo base_url('insert-porter')?>" method="post">
+						<form class="" id="contact_form" name="contact_form" action="<?php echo base_url('insert-porter')?>" method="post">
 						<div class="modal-body">
 							
 											<div class="row">
 												<div class="col-lg-4">
 													<div class="form-group ">
 														<p class="mg-b-10">First Name</p>
-														<input class="form-control" placeholder="First name" required="" type="text" required name="fname">
+														<input class="form-control" type="hidden" name="porterid" value="<?php echo $autogenID?>">
+														<input class="form-control" placeholder="First name" type="text" name="fname">
 														
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="form-group">
 														<p class="mg-b-10">Last Name</p>
-														<input class="form-control" placeholder="Last name" required="" type="text" name="lname">
+														<input class="form-control" placeholder="Last name" type="text" name="lname">
 														
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="form-group">
 														<p class="mg-b-10">Mobile Number</p>
-														<input class="form-control" placeholder="Mobile number" required="" type="text" required name="mobile">
+														<input class="form-control" placeholder="Mobile number" type="text" name="mobile">
 														
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="form-group">
 														<p class="mg-b-10">Joining Date</p>
-														<input class="form-control" placeholder="Date of Joining" required="" type="date" required name="date">
+														<input class="form-control" placeholder="Date of Joining" type="date" name="date">
 														
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="form-group">
 														<p class="mg-b-10">Shift</p>
-														<input class="form-control" placeholder="Shift" required="" type="text" required name="shift">
+														<select class="form-control" name="shift">
+  <option value="Shift-1">Shift-1</option>
+  <option value="Shift-2">Shift-2</option>
+  <option value="Shift-1">Shift-3</option>
+</select>
 														
 													</div>
 												</div>
 												<div class="col-lg-4">
 													<div class="form-group">
 														<p class="mg-b-10">Salary</p>
-														<input class="form-control" placeholder="Salary" required="" step="any" type="number" required name="salary">
+														<input class="form-control" placeholder="Salary" step="any" type="number" required name="salary">
 														
 													</div>
 												</div>
@@ -192,7 +190,12 @@
 												<div class="col-lg-4">
 													<div class="form-group">
 														<p class="mg-b-10">Shift</p>
-														<input class="form-control" placeholder="Shift" required="" type="text" required name="eshift" id="eshift">
+														<select class="form-control" name="eshift" id="eshift" >
+  <option value="Shift-1">Shift-1</option>
+  <option value="Shift-2">Shift-2</option>
+  <option value="Shift-1">Shift-3</option>
+</select>
+														<!-- <input class="form-control" placeholder="Shift" required="" type="text" required name="eshift" id="eshift"> -->
 														
 													</div>
 												</div>
@@ -258,3 +261,64 @@
      $('#deletemodaldemo1').modal('show');
  }
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+    <script>
+        if ($("#contact_form").length > 0) {
+            $("#contact_form").validate({
+                rules: {
+                    fname: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 20,
+                        regExp:'[A-Za-z]'
+                    },
+                    lname: {
+                        required: true,
+                        minlength: 2,
+                        maxlenght: 20,
+                        regExp:'[A-Za-z]'
+                    },
+                    mobile: {
+                        required: true,
+                        // minlength: 10,
+                        // maxlenght: 10
+                    },
+                     date: {
+                        required: true,
+                    },
+                     shift: {
+                        required: true,
+                    },
+                     salary: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    fname: {
+                        required: "First Name is required",
+                         maxlength: "Upto 20 characters are allowed",
+                    },
+                    lname: {
+                        required: "Last Name is required",
+                        maxlength: "Upto 20 characters are allowed",
+                    },
+                     mobile: {
+                        required: "Mobile Number is required",
+                        // minlength: "Enter valid mobile number",
+                        // maxlenght: "Enter valid mobile number"
+                    },
+                     date: {
+                        required: "Date is required",
+                    },
+                     shift: {
+                        required: "Shift is required",
+                    },
+                     salary: {
+                        required: "Salary is required",
+                    },
+                },
+            })
+        }
+    </script>

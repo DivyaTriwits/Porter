@@ -70,12 +70,28 @@ class Dashboard_model extends CI_Model {
     	}
     	return $portid;
     }
+    public function auto_generateID()
+    {
+        $query = $this->db->select('porterid')
+            ->from('porter')
+            ->get();
+            $row = $query->last_row();
+
+            if($row){ 
+                $porterid = (int)substr($row->porterid,2)+1;
+                 
+                $nextId = 'AV'.STR_PAD((string)$porterid,STR_PAD_LEFT);
+            }
+    else{$nextId = 'AV1';} // For the first time
+   //print_r($nextId);exit;
+    return $nextId;
+    }
     public function insertPorter(){
     	if($this->input->post('fname')){
            
     		$data=array(
     			'uniqueid' => $this->generateRandomString(18),
-    			'porterid'=> $this->getPortId(),
+    			'porterid'=> $this->input->post('porterid'),
                 'first_name' =>$this->input->post('fname') , 
                 'last_name' =>$this->input->post('lname') , 
                 'mobile' =>$this->input->post('mobile') , 
@@ -117,6 +133,13 @@ class Dashboard_model extends CI_Model {
     public function getBill(){
     	$data=$this->db->get('expense');
     	return $data;
+    }
+
+    public function getReportDetails()
+    {
+        $query=$this->db->select('*')
+                      ->get('new_expenses');
+                return $query->result();
     }
 
     public function insertAir(){

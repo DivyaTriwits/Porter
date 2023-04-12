@@ -48,6 +48,8 @@
 		<!-- Switcher css-->
 		<link href="<?php echo base_url()?>assets/switcher/css/switcher.css" rel="stylesheet">
 		<link href="<?php echo base_url()?>assets/switcher/demo.css" rel="stylesheet">
+ <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css"/>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 
 	</head>
 

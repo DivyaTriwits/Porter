@@ -73,6 +73,7 @@ class Welcome extends CI_Controller {
 	     if(!$this->session->userdata('userid'))
         redirect('admin-login');
 		$this->load->view('dashboard/header');
+		$data['autogenID'] = $this->Dashboard_model->auto_generateID();
 		$data['user']=$this->Dashboard_model->getPorter();
 		$this->load->view('dashboard/porter',$data);
 		$this->load->view('dashboard/footer');
@@ -103,7 +104,8 @@ class Welcome extends CI_Controller {
 	     if(!$this->session->userdata('userid'))
         redirect('admin-login');
 		$this->load->view('dashboard/header');
-		$this->load->view('dashboard/reports');
+		$data['results']=$this->Dashboard_model->getReportDetails();
+		$this->load->view('dashboard/reports',$data);
 		$this->load->view('dashboard/footer');
 	}
 	public function access($id)
@@ -165,6 +167,5 @@ class Welcome extends CI_Controller {
 	{
 		$this->Dashboard_model->deleteAir();
 	}
-  
 }
 ?>

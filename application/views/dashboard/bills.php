@@ -15,15 +15,24 @@
 							
 						</div>
 						<!-- End Page Header -->
-
+  <script type="text/javascript">
+						function printDiv(printableArea) {
+   				 		var printContents = document.getElementById(printableArea).innerHTML;
+    					var originalContents = document.body.innerHTML;
+    					document.body.innerHTML = printContents;
+    					window.print();
+    					document.body.innerHTML = originalContents;
+					}
+				</script>
 						<!-- Row -->
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="card">
 									<div class="card-body">
-										
-										<div class="table-responsive">
+										<div  id="printableArea" class="table-responsive">
+
 											<table class="table" id="example1">
+												<button type="submit" onclick="printDiv('printableArea')" class="btn btn-primary" style="margin-bottom: 10">Print</button>
 												<thead>
 													<tr>
 														<th>Sl No</th>
@@ -33,8 +42,8 @@
 														<th>Airline name</th>
 														<th>Date</th>
 														<!--<th>Time</th>-->
+														<th>Status</th>
 														<th>Bill</th>
-														
 													</tr>
 												</thead>
 												<tbody>
@@ -49,6 +58,12 @@
 														<td><?php echo $row->port_id?></td>
 														<td><?php echo $row->airlineName?></td>
 														<td><?php echo $row->date?></td>
+														<?php if ($row->cancel_port == 1) { ?><td><?php echo "Cancelled"?></td>
+													<?php } else if ($row->status == 1) {?>
+														<td><?php echo "Successfull"?></td>
+													<?php } else {?>
+														<td><?php echo "Pending"?></td>
+													<?php }?>
 														<!--<td><?php echo $row->time?></td>-->
 														<td>
 															<button style="background-color:#73D3DD;color: #ffff;" class="btn btn-sm ripple ">Print</button>

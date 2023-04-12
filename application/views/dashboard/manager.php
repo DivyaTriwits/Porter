@@ -17,17 +17,11 @@
 							</div>
 						</div>
 						<!-- End Page Header -->
-
-						
-
-						
-
 						<!-- Row -->
 						<div class="row">
 							<div class="col-lg-12">
 								<div class="card">
 									<div class="card-body">
-										
 										<div class="table-responsive">
 											<table class="table" id="example1">
 												<thead>
@@ -40,7 +34,6 @@
 														<th>Salary</th>
 														<th>Shift</th>
 														<th>Action</th>
-														
 													</tr>
 												</thead>
 												<tbody>
@@ -90,14 +83,14 @@
 						<div class="modal-header">
 							<h6 class="modal-title">Add Manager</h6><button aria-label="Close" class="close" data-dismiss="modal" type="button"><span aria-hidden="true">&times;</span></button>
 						</div>
-						<form class="" action="<?php echo base_url('insert-manager')?>" method="post">
+						<form id="contact_form" name="contact_form" class="" action="<?php echo base_url('insert-manager')?>" method="post">
 						<div class="modal-body">
 							
 											<div class="row">
 												<div class="col-lg-4">
 													<div class="form-group ">
 														<p class="mg-b-10">First Name</p>
-														<input class="form-control" placeholder="First name" required="" type="text" required name="fname">
+														<input class="form-control" placeholder="First name" id="fname" type="text" name="fname">
 														
 													</div>
 												</div>
@@ -256,3 +249,64 @@
      $('#deletemodaldemo1').modal('show');
  }
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+    <script>
+        if ($("#contact_form").length > 0) {
+            $("#contact_form").validate({
+                rules: {
+                    fname: {
+                        required: true,
+                        minlength: 4,
+                        maxlength: 20,
+                        regExp:'[A-Za-z]'
+                    },
+                    lname: {
+                        required: true,
+                        minlength: 4,
+                        maxlenght: 20,
+                        regExp:'[A-Za-z]'
+                    },
+                    mobile: {
+                        required: true,
+                        minlength: 10,
+                        maxlenght: 10
+                    },
+                     date: {
+                        required: true,
+                    },
+                     shift: {
+                        required: true,
+                    },
+                     salary: {
+                        required: true,
+                    },
+                },
+                messages: {
+                    fname: {
+                        required: "First Name is required",
+                         maxlength: "Upto 20 characters are allowed",
+                    },
+                    lname: {
+                        required: "Last Name is required",
+                        maxlength: "Upto 20 characters are allowed",
+                    },
+                     mobile: {
+                        required: "Mobile Number is required",
+                        minlength: "Enter valid mobile number",
+                        maxlenght: "Enter valid mobile number"
+                    },
+                     date: {
+                        required: "Date is required",
+                    },
+                     shift: {
+                        required: "Shift is required",
+                    },
+                     salary: {
+                        required: "Salary is required",
+                    },
+                },
+            })
+        }
+    </script>

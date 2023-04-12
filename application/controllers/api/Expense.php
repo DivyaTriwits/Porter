@@ -114,6 +114,19 @@ public function viewBags_get()
        $status=$result['status'];
            $this->response($data); 
     }
+    public function timeDifference_post()
+    {
+        $result=$this->Data_model->timeDifferenceData();
+
+       $data["result"] = $result['result'];
+       $data["operation"] = $result['operation'];
+       $data['status']=$result['status'];
+       $data['data']=$result['data'];
+     
+
+       $status=$result['status'];
+           $this->response($data); 
+    }
     public function cancel_post()
     {
        $result=$this->Data_model->cancelData();

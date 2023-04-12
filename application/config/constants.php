@@ -83,3 +83,17 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+define('RAZOR_KEY_ID', 'rzp_live_32QHAeplJn23MX');
+    define('RAZOR_KEY_SECRET', 'ZUjOmlHIRf8ZqSBpXA80nc0z');
+    define('APPLICATION_NAME', 'Porter Management');
+// define('EMAIL_FROM', 'support@theglobalscholarship.org');
+define('HOME_PATH','https://localhost/Porter/');
+// define('SCHOLARSHIP_SENT_SMS_TEMPLATE_ID','1407161138819758060');
+// define('OLD_MILITARY_GREEN','#4B5320');
+// define('ICON_MILITARY_GREEN','#D5D18A');
+// define('MILITARY_GREEN','#2B411C');
+// define('BG_SECONDARY','#e54d26');
+// define('TEXT_SECONDARY','#e54d26');
+// define('ADD_BUTTON_COLOR','#ff7f45');
+
+// define('ARAMY_GREEN','#615E3E');

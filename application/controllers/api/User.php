@@ -42,5 +42,32 @@ public function login_post()
                 );
         }
         }
-    }     
+    }    
+    public function porterlogin_post()
+    {
+        if ($this->post("login_id")) {
+            $login_id = $this->post("login_id");
+            $password = $this->post("password");
+            $user = $this->Data_model->getPorterData($login_id, $password);
+            if($user->num_rows() > 0){
+                $userData = $user->row();
+           $this->response(
+                    [
+                        "status" => true,
+                        "message" => 'Successfully login',
+                        "data" =>$userData
+                    ],
+                    REST_Controller::HTTP_OK
+                );
+        }else{
+            $this->response(
+                    [
+                        "status" => false,
+                       "message" => "Incorrect email id or password",
+                    ],
+                    REST_Controller::HTTP_BAD_REQUEST
+                );
+        }
+        }
+    } 
 }

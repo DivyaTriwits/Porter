@@ -1,4 +1,6 @@
-<!-- Main Footer-->
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+    <!-- Main Footer-->
 			<div class="main-footer text-center" style="background-color:#73D3DD">
 				<div class="container">
 					<div class="row">
