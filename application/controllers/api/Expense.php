@@ -60,7 +60,7 @@ class Expense extends REST_Controller {
 
        public function viewPassdetails_get($id)
     {
-     $data = $this->db->select('new_expenses.*')->from('new_expenses')->where('manager_id',$id)->order_by('id','desc')->get()->result();
+     $data = $this->db->select('*')->from('new_expenses')->where('manager_id',$id)->order_by('id','desc')->get()->result();
          $this->response($data, REST_Controller::HTTP_OK);
     }
     //  public function getPassbyid_get($id)
@@ -68,6 +68,16 @@ class Expense extends REST_Controller {
     //  $data = $this->db->select('*')->from("expense")->where('expense.id',$id)->get()->result();
     //      $this->response($data, REST_Controller::HTTP_OK);
     // }
+
+    public function getAllServices_get()
+    {
+        $this->db->select('*');
+        $this->db->from('new_expenses');
+        $this->db->join('porter','porter.porterid == new_expenses.port_id');
+        $this->db->where('new_expenses.port_id = $this->session->userdata
+('porterid')')->get()->result();
+                 $this->response($data, REST_Controller::HTTP_OK);
+    }
 
 public function viewBags_get()
 {
