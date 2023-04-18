@@ -69,16 +69,6 @@ class Expense extends REST_Controller {
     //      $this->response($data, REST_Controller::HTTP_OK);
     // }
 
-    public function getAllServices_get()
-    {
-        $this->db->select('*');
-        $this->db->from('new_expenses');
-        $this->db->join('porter','porter.porterid == new_expenses.port_id');
-        $this->db->where('new_expenses.port_id = $this->session->userdata
-('porterid')')->get()->result();
-                 $this->response($data, REST_Controller::HTTP_OK);
-    }
-
 public function viewBags_get()
 {
     $data = $this->db->select('*')->from('bags')->order_by('id')->get()->result();
