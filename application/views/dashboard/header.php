@@ -74,7 +74,8 @@
 						<a class="main-logo" href="<?php echo base_url()?>">
 							<!-- <img src="<?php echo base_url()?>assets/img/brand/dark-logo.png" class="header-brand-img desktop-logo" alt="logo">
 							<img src="<?php echo base_url()?>assets/img/brand/logo.png" class="header-brand-img desktop-logo theme-logo" alt="logo"> -->
-							<h2>Porter Management</h2>
+							<!-- <h2>Porter Management</h2> -->
+							<img src="<?php echo base_url()?>assets/img/logo.png" class="header-brand-img desktop-logo" alt="logo">
 						</a>
 					</div>
 					<div class="main-header-center">
@@ -90,7 +91,7 @@
 					
 						<div class="dropdown main-profile-menu">
 							<a class="d-flex" href="#">
-								<span class="main-img-user" ><img alt="avatar" src="<?php echo base_url()?>assets/img/users/9.jpg"></span>
+								<span class="main-img-user" ><img alt="avatar" src="<?php echo base_url()?>assets/img/user.png"></span>
 							</a>
 							<div class="dropdown-menu">
 								<div class="header-navheading">
